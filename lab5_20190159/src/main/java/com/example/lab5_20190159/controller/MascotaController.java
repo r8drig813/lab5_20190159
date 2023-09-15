@@ -44,7 +44,7 @@ public class MascotaController {
     @PostMapping("/save")
     public String guardar(Mascotas mascotas, RedirectAttributes attr) {
         mascotaRepository.save(mascotas);
-        return "redirect:/product";
+        return "redirect:/mascotas/lista";
     }
 
     @GetMapping("/edit")

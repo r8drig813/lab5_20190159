@@ -13,7 +13,6 @@ import java.sql.Date;
 public class Lugares {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idLugares")
     private int idLugares;
     @Column(name = "nombre_lugar", length = 30)

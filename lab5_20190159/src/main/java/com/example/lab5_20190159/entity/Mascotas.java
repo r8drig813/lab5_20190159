@@ -11,7 +11,6 @@ import java.sql.Date;
 @Table(name = "mascotas")
 public class Mascotas {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idMascotas")
     private int idMascotas;
 

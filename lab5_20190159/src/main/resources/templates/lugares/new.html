@@ -2,17 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Travel Can</title>
-    <style>
-        .mi-div{
-            background-image: url('/travel can_logo.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-        }
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Nuevo Mascota</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -42,35 +34,32 @@
 
 <main>
     <div class="container px-4 py-5">
-        <h1 class="pb-2 border-bottom">Lista lugares</h1>
-        <div class="d-flex mt-3 mb-4">
-            <a class="btn btn-primary" th:href="@{'/lugares/new'}">Nuevo Lugar</a>
-            <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
-        </div>
-        <table class="table">
-            <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Descripcion</th>
-                <th>Foto</th>
-                <th>Editar</th>
+        <h1 class="pb-2 mb-3 border-bottom">Nuevo Mascota</h1>
+        <form method="post" th:action="@{/lugares/save}" class="mt-2">
 
-            </tr>
-            <tr th:each="lugares, info : ${listaLugares}">
-                <td th:text="${info.index + 1}"></td>
-                <td th:text="${lugares.nombre_lugar}"></td>
-                <td th:text="${lugares.descrip_lugar}"></td>
-                <td th:text="${lugares.fecha_lugar}"></td>
-                <td th:text="${lugares.fecha_lugar}"></td>
-                <td><a class="btn btn-primary"
-                       th:href="@{'/lugares/edit?id=' + ${lugares.idLugares}}">Editar</a>
-                </td>
-            </tr>
-        </table>
+            <div class="mb-3">
+                <label for="idLugares" class="form-label">ID</label>
+                <input name="idLugares" type="text" class="form-control" id="idLugares">
+            </div>
+            <div class="mb-3">
+                <label for="nombre_lugar" class="form-label">Nombre</label>
+                <input name="nombre_lugar" type="text" class="form-control" id="nombre_lugar">
+            </div>
+            <div class="mb-3">
+                <label for="descrip_lugar" class="form-label">Descripcion</label>
+                <input name="descrip_lugar" type="text" class="form-control" id="descrip_lugar">
+            </div>
+            <div class="mb-3">
+                <label for="fecha_lugar" class="form-label">fecha_lugar</label>
+                <input name="fecha_lugar" type="text" class="form-control" id="fecha_lugar">
+            </div>
+
+            <a th:href="@{/lugares/lista}" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
     </div>
 </main>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </html>
